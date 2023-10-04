@@ -94,7 +94,12 @@ set -xe
 #git clone https://github.com/t-hg/alacritty-config $HOME/.config/alacritty
 
 ## Screenlocker
-#sudo pacman -S --noconfirm slock
+#pushd $HOME/Projects
+#git clone https://github.com/t-hg/slock-config
+#pushd slock-config
+#./apply-patches.sh
+#popd
+#popd
 
 ## i3
 #sudo pacman -S --noconfirm xorg
