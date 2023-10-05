@@ -262,6 +262,7 @@ set -xe
 #sudo pacman -S --noconfirm pcmanfm-gtk3
 #sudo pacman -S --noconfirm ripgrep-all
 #sudo pacman -S --noconfirm tree
+#sudo pacman -S --noconfirm alsa-utils
 
 set +x
 echo "DONE"
