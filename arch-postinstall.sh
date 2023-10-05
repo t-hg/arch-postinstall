@@ -260,6 +260,7 @@ set -xe
 #sudo pacman -S --noconfirm firefox
 #sudo pacman -S --noconfirm bitwarden
 #sudo pacman -S --noconfirm pcmanfm-gtk3
+#sudo pacman -S --noconfirm ripgrep-all
 
 set +x
 echo "DONE"
