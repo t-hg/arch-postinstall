@@ -261,6 +261,7 @@ set -xe
 #sudo pacman -S --noconfirm bitwarden
 #sudo pacman -S --noconfirm pcmanfm-gtk3
 #sudo pacman -S --noconfirm ripgrep-all
+#sudo pacman -S --noconfirm tree
 
 set +x
 echo "DONE"
