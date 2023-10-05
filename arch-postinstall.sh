@@ -219,13 +219,13 @@ set -xe
 ## Theme
 #yay -S --noconfirm dracula-gtk-theme
 #yay -S --noconfirm dracula-cursors-git
-#yay -S --noconfirm dracula-icons-git
+#yay -S --noconfirm beautyline
 #cat >> $HOME/.Xresources <<'EOF'
 #Xcursor.theme: Dracula-cursors
 #EOF
 #cat > $HOME/.gtkrc-2.0 <<'EOF'
 #gtk-cursor-theme-name = "Dracula-cursors"
-#gtk-icon-theme-name = "Dracula"
+#gtk-icon-theme-name = "BeautyLine"
 #gtk-theme-name = "Dracula"
 #gtk-font-name = "DejaVu Sans 11"
 #EOF
@@ -233,7 +233,7 @@ set -xe
 #cat > $HOME/.config/gtk-3.0/settings.ini <<'EOF'
 #[Settings]
 #gtk-cursor-theme-name = Dracula-cursors
-#gtk-icon-theme-name = Dracula
+#gtk-icon-theme-name = BeautyLine
 #gtk-theme-name = Dracula
 #gtk-font-name = DejaVu Sans 11
 #EOF
