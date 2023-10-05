@@ -148,6 +148,11 @@ set -xe
 #make build
 #sudo make install
 #popd
+#git clone https://github.com/t-hg/x11-systray-volume $HOME/Projects/x11-systray-volume
+#pushd $HOME/Projects/x11-systray-volume
+#make build
+#sudo make install
+#popd
 #cat > $HOME/.xinitrc <<'EOF'
 ##!/bin/sh
 #
@@ -185,6 +190,7 @@ set -xe
 #
 #xss-lock --transfer-sleep-lock -- slock &
 #x11-on-resolution-change "nitrogen --restore" &
+#x11-systray-volume &
 #nm-applet &
 #exec i3
 #EOF
