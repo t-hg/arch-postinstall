@@ -28,6 +28,20 @@ set -xe
 ## C development
 #sudo pacman -S --noconfirm base-devel
 #sudo pacman -S --noconfirm clang
+#sudo pacman -S --noconfirm ccls
+
+## Go development
+#sudo pacman -S --noconfirm go
+#sudo pacman -S --noconfirm gopls
+#sudo pacman -S --noconfirm delve
+#cat >> .bashrc <<'EOF'
+## Go
+#export GOPATH=$HOME/.go
+#export PATH=$GOPATH:$PATH
+#EOF
+
+## Lua development
+#sudo pacman -S --noconfirm lua-language-server
 
 ## Wget
 #sudo pacman -S --noconfirm wget
@@ -54,16 +68,6 @@ set -xe
 #git clone https://github.com/t-hg/nvim-config $HOME/.config/nvim
 #sudo mkdir -p /root/.config/nvim
 #sudo cp $HOME/.config/nvim/lua/options.lua /root/.config/nvim/init.lua
-
-## Golang
-#sudo pacman -S --noconfirm go
-#sudo pacman -S --noconfirm gopls
-#sudo pacman -S --noconfirm delve
-#cat >> .bashrc <<'EOF'
-## Go
-#export GOPATH=$HOME/.go
-#export PATH=$GOPATH:$PATH
-#EOF
 
 ## SSH
 #touch $HOME/.ssh/config
