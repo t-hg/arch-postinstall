@@ -248,8 +248,10 @@ set -xe
 #gtk-theme-name = Dracula
 #gtk-font-name = DejaVu Sans 11
 #EOF
-#mkdir -p $HOME/Pictures/Wallpapers
-#git clone --depth 1 https://github.com/dracula/wallpaper.git $HOME/Pictures/Wallpapers/Dracula
+mkdir -p $HOME/Pictures/Wallpapers/Dracula
+git clone --depth 1 https://github.com/dracula/wallpaper.git $HOME/Pictures/Wallpapers/Dracula-Temp
+find $HOME/Pictures/Wallpapers/Dracula-Temp -name "*.png" | while read w; do mv "$w" $HOME/Pictures/Wallpapers/Dracula; done
+rm -rf $HOME/Pictures/Wallpapers/Dracula-Temp
 
 ## Touchpad
 #cat <<'EOF' | sudo tee /etc/X11/xorg.conf.d/40-touchpad.conf
