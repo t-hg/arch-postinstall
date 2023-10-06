@@ -192,6 +192,7 @@ set -xe
 #x11-on-resolution-change "nitrogen --restore" &
 #x11-systray-volume &
 #nm-applet &
+#blueman-applet &
 #exec i3
 #EOF
 
@@ -260,6 +261,12 @@ set -xe
 #EndSection
 #EOF
 
+## Bluetooth
+#sudo pacman -S --noconfirm bluez
+#sudo pacman -S --noconfirm blueman
+#sudo systemctl enable bluetooth.service
+#sudo systemctl start bluetooth.service
+
 ## More applications
 #sudo pacman -S --noconfirm man-db
 #sudo pacman -S --noconfirm man-pages
@@ -269,6 +276,7 @@ set -xe
 #sudo pacman -S --noconfirm ripgrep-all
 #sudo pacman -S --noconfirm tree
 #sudo pacman -S --noconfirm alsa-utils
+#sudo pacman -S --noconfirm arandr
 
 set +x
 echo "DONE"
