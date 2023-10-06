@@ -279,6 +279,7 @@ set -xe
 #sudo pacman -S --noconfirm tree
 #sudo pacman -S --noconfirm alsa-utils
 #sudo pacman -S --noconfirm arandr
+#sudo pacman -S --noconfirm sxiv
 
 set +x
 echo "DONE"
