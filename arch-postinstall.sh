@@ -248,10 +248,10 @@ set -xe
 #gtk-theme-name = Dracula
 #gtk-font-name = DejaVu Sans 11
 #EOF
-mkdir -p $HOME/Pictures/Wallpapers/Dracula
-git clone --depth 1 https://github.com/dracula/wallpaper.git $HOME/Pictures/Wallpapers/Dracula-Temp
-find $HOME/Pictures/Wallpapers/Dracula-Temp -name "*.png" | while read w; do mv "$w" $HOME/Pictures/Wallpapers/Dracula; done
-rm -rf $HOME/Pictures/Wallpapers/Dracula-Temp
+
+## Wallpapers
+#mkdir -p $HOME/Pictures/Wallpapers/
+#git clone --depth 1 https://gitlab.com/dwt1/wallpapers.git $HOME/Pictures/Wallpapers/dt
 
 ## Touchpad
 #cat <<'EOF' | sudo tee /etc/X11/xorg.conf.d/40-touchpad.conf
@@ -271,6 +271,12 @@ rm -rf $HOME/Pictures/Wallpapers/Dracula-Temp
 #sudo systemctl enable bluetooth.service
 #sudo systemctl start bluetooth.service
 
+## Image viewer
+#sudo pacman -S --noconfirm sxiv
+#cat >> $HOME/.Xresources <<'EOF'
+#Sxiv.background: #282c34
+#EOF
+
 ## More applications
 #sudo pacman -S --noconfirm man-db
 #sudo pacman -S --noconfirm man-pages
@@ -281,7 +287,6 @@ rm -rf $HOME/Pictures/Wallpapers/Dracula-Temp
 #sudo pacman -S --noconfirm tree
 #sudo pacman -S --noconfirm alsa-utils
 #sudo pacman -S --noconfirm arandr
-#sudo pacman -S --noconfirm sxiv
 
 set +x
 echo "DONE"
