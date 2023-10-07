@@ -43,6 +43,9 @@ set -xe
 ## Lua development
 #sudo pacman -S --noconfirm lua-language-server
 
+## Web developement
+sudo pacman -S --noconfirm vscode-css-languageserver
+
 ## Wget
 #sudo pacman -S --noconfirm wget
 
