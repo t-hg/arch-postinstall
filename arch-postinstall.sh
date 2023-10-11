@@ -9,6 +9,11 @@ set -xe
 #blacklist pcspkr
 #EOF
 
+## Mirrors
+#sudo pacman -S --noconfirm rsync
+#sudo pacman -S --noconfirm reflector
+#sudo reflector --sort rate --country Switzerland --save /etc/pacman.d/mirrorlist
+
 ## Keyboard layout
 #sudo localectl set-locale en_GB.UTF-8
 #sudo localectl set-keymap sg
@@ -24,7 +29,7 @@ set -xe
 #xdg-user-dirs-update
 #rm -rf Templates
 #rm -rf Public
-sudo pacman -S --noconfirm gvfs
+#sudo pacman -S --noconfirm gvfs
 
 ## C development
 #sudo pacman -S --noconfirm base-devel
@@ -312,6 +317,9 @@ sudo pacman -S --noconfirm gvfs
 #sudo pacman -S --noconfirm alsa-utils
 #sudo pacman -S --noconfirm arandr
 #sudo pacman -S --noconfirm libreoffice-still
+sudo pacman -S --noconfirm bc
+sudo pacman -S --noconfirm inkscape
+sudo pacman -S --noconfirm gimp
 
 set +x
 echo "DONE"
