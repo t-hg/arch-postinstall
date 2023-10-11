@@ -77,6 +77,10 @@ set -xe
 #git clone https://github.com/t-hg/nvim-config $HOME/.config/nvim
 #sudo mkdir -p /root/.config/nvim
 #sudo cp $HOME/.config/nvim/lua/options.lua /root/.config/nvim/init.lua
+#cat <<'EOF' | sudo tee -a /etc/profile
+#export EDITOR=nvim
+#export VISUAL=nvim
+#EOF
 
 ## SSH
 #touch $HOME/.ssh/config
