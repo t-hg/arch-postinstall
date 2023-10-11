@@ -317,9 +317,10 @@ set -xe
 #sudo pacman -S --noconfirm alsa-utils
 #sudo pacman -S --noconfirm arandr
 #sudo pacman -S --noconfirm libreoffice-still
-sudo pacman -S --noconfirm bc
-sudo pacman -S --noconfirm inkscape
-sudo pacman -S --noconfirm gimp
+#sudo pacman -S --noconfirm bc
+#sudo pacman -S --noconfirm inkscape
+#sudo pacman -S --noconfirm gimp
+#sudo pacman -S --noconfirm renameutils
 
 set +x
 echo "DONE"
