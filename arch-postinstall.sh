@@ -123,6 +123,7 @@ set -xe
 #sudo pacman -S --noconfirm pavucontrol
 #sudo pacman -S --noconfirm xss-lock
 #sudo pacman -S --noconfirm xclip
+#sudo pacman -S --noconfirm autorandr
 #git clone https://github.com/t-hg/i3-config $HOME/Projects/i3
 #sudo pacman -S --noconfirm meson
 #sudo pacman -S --noconfirm ninja
@@ -203,6 +204,19 @@ set -xe
 #nm-applet &
 #blueman-applet &
 #exec i3
+#EOF
+
+## DisplayLink
+#yay -S evdi-compat-git
+#yay -S displaylink
+#sudo systemctl enable displaylink.service
+#cat <<'EOF' | sudo tee /etc/X11/xorg.conf.d/20-evdi.conf
+#Section "OutputClass"
+#	Identifier "DisplayLink"
+#	MatchDriver "evdi"
+#	Driver "modesetting"
+#	Option "AccelMethod" "none"
+#EndSection
 #EOF
 
 ## Font
