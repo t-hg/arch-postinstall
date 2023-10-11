@@ -24,6 +24,7 @@ set -xe
 #xdg-user-dirs-update
 #rm -rf Templates
 #rm -rf Public
+sudo pacman -S --noconfirm gvfs
 
 ## C development
 #sudo pacman -S --noconfirm base-devel
@@ -123,7 +124,6 @@ set -xe
 #sudo pacman -S --noconfirm pavucontrol
 #sudo pacman -S --noconfirm xss-lock
 #sudo pacman -S --noconfirm xclip
-#sudo pacman -S --noconfirm autorandr
 #git clone https://github.com/t-hg/i3-config $HOME/Projects/i3
 #sudo pacman -S --noconfirm meson
 #sudo pacman -S --noconfirm ninja
@@ -207,8 +207,9 @@ set -xe
 #EOF
 
 ## DisplayLink
-#yay -S evdi-compat-git
-#yay -S displaylink
+#sudo pacman -S --noconfirm autorandr
+#yay -S --noconfirm evdi-compat-git
+#yay -S --noconfirm displaylink
 #sudo systemctl enable displaylink.service
 #cat <<'EOF' | sudo tee /etc/X11/xorg.conf.d/20-evdi.conf
 #Section "OutputClass"
