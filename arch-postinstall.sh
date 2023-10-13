@@ -22,6 +22,7 @@ set -xe
 ## Ensure folders
 #mkdir -p $HOME/.config
 #mkdir -p $HOME/.ssh
+#sudo mkdir -p /root/.ssh
 #mkdir -p $HOME/Projects
 #sudo pacman -S --noconfirm xdg-user-dirs
 #sudo pacman -S --noconfirm xdg-user-dirs-gtk
@@ -35,6 +36,21 @@ set -xe
 #sudo pacman -S --noconfirm base-devel
 #sudo pacman -S --noconfirm clang
 #sudo pacman -S --noconfirm ccls
+
+## Bash
+#sudo pacman -S --noconfirm bash-completion
+#sudo pacman -S --noconfirm bash-preexec
+#sudo pacman -S --noconfirm bash-language-server
+#sudo pacman -S --noconfirm shellcheck
+#git clone https://github.com/t-hg/bash-config $HOME/.config/bash
+#cat > $HOME/.bashrc <<'EOF'
+#. $HOME/.config/bash/bashrc
+#EOF
+sudo mkdir -p /root/.config
+sudo git clone https://github.com/t-hg/bash-config /root/.config/bash
+cat <<'EOF' | sudo tee /root/.bashrc
+. /root/.config/bash/bashrc
+EOF
 
 ## Go development
 #sudo pacman -S --noconfirm go
@@ -59,16 +75,6 @@ set -xe
 #sudo pacman -S --noconfirm git
 #read -r -p "git config global user.name: " user && git config --global user.name "$user"
 #read -r -p "git config global user.email: " email && git config --global user.email "$email"
-
-## Bash
-#sudo pacman -S --noconfirm bash-completion
-#sudo pacman -S --noconfirm bash-preexec
-#sudo pacman -S --noconfirm bash-language-server
-#sudo pacman -S --noconfirm shellcheck
-#git clone https://github.com/t-hg/bash-config $HOME/.config/bash
-#cat > $HOME/.bashrc <<'EOF'
-#. $HOME/.config/bash/bashrc
-#EOF
 
 ## Editor
 #DO_INSTALL neovim
