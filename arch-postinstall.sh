@@ -46,11 +46,11 @@ set -xe
 #cat > $HOME/.bashrc <<'EOF'
 #. $HOME/.config/bash/bashrc
 #EOF
-sudo mkdir -p /root/.config
-sudo git clone https://github.com/t-hg/bash-config /root/.config/bash
-cat <<'EOF' | sudo tee /root/.bashrc
-. /root/.config/bash/bashrc
-EOF
+#sudo mkdir -p /root/.config
+#sudo git clone https://github.com/t-hg/bash-config /root/.config/bash
+#cat <<'EOF' | sudo tee /root/.bashrc
+#. /root/.config/bash/bashrc
+#EOF
 
 ## Go development
 #sudo pacman -S --noconfirm go
