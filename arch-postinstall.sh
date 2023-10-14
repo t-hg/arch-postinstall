@@ -14,6 +14,10 @@ set -xe
 #sudo pacman -S --noconfirm reflector
 #sudo reflector --sort rate --country Switzerland --save /etc/pacman.d/mirrorlist
 
+## VPN
+sudo pacman -S --noconfirm wireguard-tools
+sudo pacman -S --noconfirm openresolv
+
 ## Keyboard layout
 #sudo localectl set-locale en_GB.UTF-8
 #sudo localectl set-keymap sg
