@@ -3,132 +3,12 @@
 echo "START"
 set -xe
 
-## No beep
-#sudo rmmod pcspkr
-#cat <<'EOF' | sudo tee /etc/modprobe.d/nobeep.conf
-#blacklist pcspkr
-#EOF
-
-## Mirrors
-#sudo pacman -S --noconfirm rsync
-#sudo pacman -S --noconfirm reflector
-#sudo reflector --sort rate --country Switzerland --save /etc/pacman.d/mirrorlist
-
-## VPN
-sudo pacman -S --noconfirm wireguard-tools
-sudo pacman -S --noconfirm openresolv
-
-## Keyboard layout
-#sudo localectl set-locale en_GB.UTF-8
-#sudo localectl set-keymap sg
-#sudo localectl status
-
-## Ensure folders
-#mkdir -p $HOME/.config
-#mkdir -p $HOME/.ssh
-#sudo mkdir -p /root/.ssh
-#mkdir -p $HOME/Projects
+## i3
+#sudo pacman -S --noconfirm gvfs
 #sudo pacman -S --noconfirm xdg-user-dirs
 #sudo pacman -S --noconfirm xdg-user-dirs-gtk
 #xdg-user-dirs-gtk-update
 #xdg-user-dirs-update
-#rm -rf Templates
-#rm -rf Public
-#sudo pacman -S --noconfirm gvfs
-
-## C development
-#sudo pacman -S --noconfirm base-devel
-#sudo pacman -S --noconfirm clang
-#sudo pacman -S --noconfirm ccls
-
-## Bash
-#sudo pacman -S --noconfirm bash-completion
-#sudo pacman -S --noconfirm bash-preexec
-#sudo pacman -S --noconfirm bash-language-server
-#sudo pacman -S --noconfirm shellcheck
-#git clone https://github.com/t-hg/bash-config $HOME/.config/bash
-#cat > $HOME/.bashrc <<'EOF'
-#. $HOME/.config/bash/bashrc
-#EOF
-#sudo mkdir -p /root/.config
-#sudo git clone https://github.com/t-hg/bash-config /root/.config/bash
-#cat <<'EOF' | sudo tee /root/.bashrc
-#. /root/.config/bash/bashrc
-#EOF
-
-## Go development
-#sudo pacman -S --noconfirm go
-#sudo pacman -S --noconfirm gopls
-#sudo pacman -S --noconfirm delve
-#cat >> .bashrc <<'EOF'
-## Go
-#export GOPATH=$HOME/.go
-#export PATH=$GOPATH:$PATH
-#EOF
-
-## Lua development
-#sudo pacman -S --noconfirm lua-language-server
-
-## Web developement
-#sudo pacman -S --noconfirm vscode-css-languageserver
-
-## Wget
-#sudo pacman -S --noconfirm wget
-
-## Git
-#sudo pacman -S --noconfirm git
-#read -r -p "git config global user.name: " user && git config --global user.name "$user"
-#read -r -p "git config global user.email: " email && git config --global user.email "$email"
-
-## Editor
-#DO_INSTALL neovim
-#sudo ln -s /usr/bin/nvim /usr/bin/vi
-#sudo ln -s /usr/bin/nvim /usr/bin/vim
-#git clone https://github.com/t-hg/nvim-config $HOME/.config/nvim
-#sudo mkdir -p /root/.config/nvim
-#sudo cp $HOME/.config/nvim/lua/options.lua /root/.config/nvim/init.lua
-#cat <<'EOF' | sudo tee -a /etc/profile
-#export EDITOR=nvim
-#export VISUAL=nvim
-#EOF
-
-## SSH
-#touch $HOME/.ssh/config
-#touch $HOME/.ssh/id_rsa
-#touch $HOME/.ssh/id_rsa.pub
-#chmod 600 $HOME/.ssh/id_rsa
-#cat > $HOME/.ssh/config <<'EOF'
-#Host *
-#  AddKeysToAgent 1h
-#EOF
-#sudo pacman -S --noconfirm keychain
-#cat >> $HOME/.bashrc <<'EOF'
-#eval "$(keychain --eval --noask --quiet --agents ssh $HOME/.ssh/id_rsa)"
-#EOF
-
-## AUR helper
-#pushd $HOME/Downloads
-#wget https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
-#tar xvf yay.tar.gz
-#pushd yay
-#makepkg
-#sudo pacman -U yay*.zst
-#popd
-#popd
-
-## Terminal emulator
-#sudo pacman -S --noconfirm alacritty
-#git clone https://github.com/t-hg/alacritty-config $HOME/.config/alacritty
-
-## Screenlocker
-#pushd $HOME/Projects
-#git clone https://github.com/t-hg/slock-config
-#pushd slock-config
-#./apply-patches.sh
-#popd
-#popd
-
-## i3
 #sudo pacman -S --noconfirm xorg
 #sudo pacman -S --noconfirm xorg-xinit
 #sudo pacman -S --noconfirm xf86-video-amdgpu
@@ -225,19 +105,6 @@ sudo pacman -S --noconfirm openresolv
 #exec i3
 #EOF
 
-## DisplayLink
-#sudo pacman -S --noconfirm autorandr
-#yay -S --noconfirm evdi-compat-git
-#yay -S --noconfirm displaylink
-#sudo systemctl enable displaylink.service
-#cat <<'EOF' | sudo tee /etc/X11/xorg.conf.d/20-evdi.conf
-#Section "OutputClass"
-#	Identifier "DisplayLink"
-#	MatchDriver "evdi"
-#	Driver "modesetting"
-#	Option "AccelMethod" "none"
-#EndSection
-#EOF
 
 ## Font
 #sudo pacman -S --noconfirm ttf-dejavu
@@ -292,6 +159,17 @@ sudo pacman -S --noconfirm openresolv
 #gtk-font-name = DejaVu Sans 11
 #EOF
 
+## Terminal emulator
+#sudo pacman -S --noconfirm alacritty
+#git clone https://github.com/t-hg/alacritty-config $HOME/.config/alacritty
+## Screenlocker
+#pushd $HOME/Projects
+#git clone https://github.com/t-hg/slock-config
+#pushd slock-config
+#./apply-patches.sh
+#popd
+#popd
+
 ## Wallpapers
 #mkdir -p $HOME/Pictures/Wallpapers/
 #git clone --depth 1 https://gitlab.com/dwt1/wallpapers.git $HOME/Pictures/Wallpapers/dt
@@ -321,20 +199,9 @@ sudo pacman -S --noconfirm openresolv
 #EOF
 
 ## More applications
-#sudo pacman -S --noconfirm man-db
-#sudo pacman -S --noconfirm man-pages
-#sudo pacman -S --noconfirm firefox
-#sudo pacman -S --noconfirm bitwarden
 #sudo pacman -S --noconfirm pcmanfm-gtk3
-#sudo pacman -S --noconfirm ripgrep-all
-#sudo pacman -S --noconfirm tree
 #sudo pacman -S --noconfirm alsa-utils
 #sudo pacman -S --noconfirm arandr
-#sudo pacman -S --noconfirm libreoffice-still
-#sudo pacman -S --noconfirm bc
-#sudo pacman -S --noconfirm inkscape
-#sudo pacman -S --noconfirm gimp
-#sudo pacman -S --noconfirm renameutils
 
 set +x
 echo "DONE"
