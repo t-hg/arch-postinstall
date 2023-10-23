@@ -8,7 +8,7 @@ set -xe
 #cat <<'EOF' | sudo tee /etc/modprobe.d/nobeep.conf
 #blacklist pcspkr
 #EOF
-
+#
 ## Mirrors
 #sudo pacman -S --noconfirm rsync
 #sudo pacman -S --noconfirm reflector
@@ -17,28 +17,28 @@ set -xe
 ## VPN
 #sudo pacman -S --noconfirm wireguard-tools
 #sudo pacman -S --noconfirm openresolv
-
+#
 ## Keyboard layout
 #sudo localectl set-locale en_GB.UTF-8
 #sudo localectl set-keymap sg
 #sudo localectl status
-
+#
 ## Ensure folders
 #mkdir -p $HOME/.config
 #mkdir -p $HOME/.ssh
 #mkdir -p $HOME/Projects
 #sudo mkdir -p /root/.config
-
+#
 ## Git
 #sudo pacman -S --noconfirm git
 #read -r -p "git config global user.name: " user && git config --global user.name "$user"
 #read -r -p "git config global user.email: " email && git config --global user.email "$email"
-
+#
 ## C development
 #sudo pacman -S --noconfirm base-devel
 #sudo pacman -S --noconfirm clang
 #sudo pacman -S --noconfirm ccls
-
+#
 ## Bash
 #sudo pacman -S --noconfirm bash-completion
 #sudo pacman -S --noconfirm bash-preexec
@@ -52,12 +52,12 @@ set -xe
 #cat <<'EOF' | sudo tee /root/.bashrc
 #. /root/.config/bash/bashrc
 #EOF
-
+#
 ## Go development
 #sudo pacman -S --noconfirm go
 #sudo pacman -S --noconfirm gopls
 #sudo pacman -S --noconfirm delve
-#cat >> .bashrc <<'EOF'
+#cat >> $HOME/.bashrc <<'EOF'
 ## Go
 #export GOPATH=$HOME/.go
 #export PATH=$GOPATH/bin:$PATH
@@ -65,15 +65,19 @@ set -xe
 
 ## Lua development
 #sudo pacman -S --noconfirm lua-language-server
-
+#
 ## Web developement
 #sudo pacman -S --noconfirm wget
 #sudo pacman -S --noconfirm curl
 #sudo pacman -S --noconfirm vscode-css-languageserver
 #sudo pacman -S --noconfirm typescript-language-server
-
+#
 ## Editor
+#sudo pacman -Rcns --noconfirm vim
+#sudo pacman -Rcns --noconfirm nano
 #sudo pacman -S --noconfirm neovim
+#sudo rm -f /usr/bin/vi
+#sudo rm -f /usr/bin/vim
 #sudo ln -s /usr/bin/nvim /usr/bin/vi
 #sudo ln -s /usr/bin/nvim /usr/bin/vim
 #git clone https://github.com/t-hg/nvim-config $HOME/.config/nvim
@@ -83,7 +87,7 @@ set -xe
 #export EDITOR=nvim
 #export VISUAL=nvim
 #EOF
-
+#
 ## SSH
 #touch $HOME/.ssh/config
 #touch $HOME/.ssh/id_rsa
@@ -97,7 +101,7 @@ set -xe
 #cat >> $HOME/.bashrc <<'EOF'
 #eval "$(keychain --eval --noask --quiet --agents ssh $HOME/.ssh/id_rsa)"
 #EOF
-
+#
 ## AUR helper
 #pushd $HOME/Downloads
 #wget https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
@@ -107,22 +111,7 @@ set -xe
 #sudo pacman -U yay*.zst
 #popd
 #popd
-
-## DisplayLink
-#sudo pacman -S --noconfirm autorandr
-#yay -S --noconfirm evdi-compat-git
-#yay -S --noconfirm displaylink
-#sudo systemctl enable displaylink.service
-#cat <<'EOF' | sudo tee /etc/X11/xorg.conf.d/20-evdi.conf
-#Section "OutputClass"
-#	Identifier "DisplayLink"
-#	MatchDriver "evdi"
-#	Driver "modesetting"
-#	Option "AccelMethod" "none"
-#EndSection
-#EOF
-
-
+#
 ## More applications
 #sudo pacman -S --noconfirm man-db
 #sudo pacman -S --noconfirm man-pages
@@ -135,6 +124,7 @@ set -xe
 #sudo pacman -S --noconfirm inkscape
 #sudo pacman -S --noconfirm gimp
 #sudo pacman -S --noconfirm renameutils
+#sudo pacman -S --noconfirm ttf-iosevka-nerd
 
 set +x
 echo "DONE"

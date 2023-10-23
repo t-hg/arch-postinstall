@@ -198,6 +198,20 @@ set -xe
 #Sxiv.background: #282c34
 #EOF
 
+## DisplayLink
+#sudo pacman -S --noconfirm autorandr
+#yay -S --noconfirm evdi-compat-git
+#yay -S --noconfirm displaylink
+#sudo systemctl enable displaylink.service
+#cat <<'EOF' | sudo tee /etc/X11/xorg.conf.d/20-evdi.conf
+#Section "OutputClass"
+#	Identifier "DisplayLink"
+#	MatchDriver "evdi"
+#	Driver "modesetting"
+#	Option "AccelMethod" "none"
+#EndSection
+#EOF
+
 ## More applications
 #sudo pacman -S --noconfirm pcmanfm-gtk3
 #sudo pacman -S --noconfirm alsa-utils
