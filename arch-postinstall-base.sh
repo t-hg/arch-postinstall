@@ -114,11 +114,6 @@ rm -rf yay
 rm -f yay.tar.gz
 popd
 
-# Plymouth
-sudo pacman -S --noconfirm plymouth
-sudo sed -i 's/ block / block plymouth /' /etc/mkinitcpio.conf
-sudo mkinitcpio -p linux
-
 # More applications
 sudo pacman -S --noconfirm man-db
 sudo pacman -S --noconfirm man-pages
