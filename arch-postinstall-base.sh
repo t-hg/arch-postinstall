@@ -63,6 +63,13 @@ export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
 EOF
 
+# Lazygit
+sudo pacman -S --noconfirm lazygit
+cat >> $HOME/.bashrc << 'EOF'
+# Lazygit
+alias lg='lazygit'
+EOF
+
 # Lua development
 sudo pacman -S --noconfirm lua-language-server
 
