@@ -136,6 +136,7 @@ sudo pacman -S --noconfirm gimp
 sudo pacman -S --noconfirm renameutils
 sudo pacman -S --noconfirm ttf-iosevka-nerd
 sudo pacman -S --noconfirm wl-clipboard
+sudo pacman -S --noconfirm fwupd
 
 set +x
 echo "DONE"
