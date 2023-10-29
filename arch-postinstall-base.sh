@@ -115,13 +115,15 @@ wget https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
 tar xvf yay.tar.gz
 pushd yay
 makepkg
-sudo pacman -U yay*.zst
+sudo pacman -U --noconfirm yay*.zst
 popd
 rm -rf yay
 rm -f yay.tar.gz
 popd
 
 # More applications
+sudo pacman -S --noconfirm linux-headers
+sudo pacman -S --noconfirm linux-lts-headers
 sudo pacman -S --noconfirm man-db
 sudo pacman -S --noconfirm man-pages
 sudo pacman -S --noconfirm firefox
