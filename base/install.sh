@@ -1,16 +1,36 @@
 #!/usr/bin/env bash
 
-echo "START"
 set -xe
+
+# Unrelated packages
+sudo pacman -S --noconfirm bc
+sudo pacman -S --noconfirm firefox
+sudo pacman -S --noconfirm fwupd
+sudo pacman -S --noconfirm gimp
+sudo pacman -S --noconfirm inkscape
+sudo pacman -S --noconfirm libreoffice-still
+sudo pacman -S --noconfirm linux-headers
+sudo pacman -S --noconfirm linux-lts-headers
+sudo pacman -S --noconfirm man-db
+sudo pacman -S --noconfirm man-pages
+sudo pacman -S --noconfirm renameutils
+sudo pacman -S --noconfirm ripgrep-all
+sudo pacman -S --noconfirm rsync
+sudo pacman -S --noconfirm thunderbird
+sudo pacman -S --noconfirm tree
+sudo pacman -S --noconfirm ttf-iosevka-nerd
+sudo pacman -S --noconfirm wl-clipboard
+sudo pacman -S --noconfirm xclip
+
+# password manager
+sudo pacman -S --noconfirm bitwarden
+sudo pacman -S --noconfirm bitwarden-cli
 
 # No beep
 sudo rmmod pcspkr
-cat <<'EOF' | sudo tee /etc/modprobe.d/nobeep.conf
-blacklist pcspkr
-EOF
+sudo cp etc/modprobe.d/nobeep.conf /etc/modprobe/
 
 # Mirrors
-sudo pacman -S --noconfirm rsync
 sudo pacman -S --noconfirm reflector
 sudo reflector --sort rate --country Switzerland --save /etc/pacman.d/mirrorlist
 
@@ -22,12 +42,6 @@ sudo pacman -S --noconfirm openresolv
 sudo localectl set-locale en_GB.UTF-8
 sudo localectl set-keymap sg
 sudo localectl status
-
-# Ensure folders
-mkdir -p $HOME/.config
-mkdir -p $HOME/.ssh
-mkdir -p $HOME/Projects
-sudo mkdir -p /root/.config
 
 # Git
 sudo pacman -S --noconfirm git
@@ -120,26 +134,4 @@ popd
 rm -rf yay
 rm -f yay.tar.gz
 popd
-
-# More applications
-sudo pacman -S --noconfirm linux-headers
-sudo pacman -S --noconfirm linux-lts-headers
-sudo pacman -S --noconfirm man-db
-sudo pacman -S --noconfirm man-pages
-sudo pacman -S --noconfirm firefox
-sudo pacman -S --noconfirm thunderbird
-sudo pacman -S --noconfirm bitwarden
-sudo pacman -S --noconfirm ripgrep-all
-sudo pacman -S --noconfirm tree
-sudo pacman -S --noconfirm libreoffice-still
-sudo pacman -S --noconfirm bc
-sudo pacman -S --noconfirm inkscape
-sudo pacman -S --noconfirm gimp
-sudo pacman -S --noconfirm renameutils
-sudo pacman -S --noconfirm ttf-iosevka-nerd
-sudo pacman -S --noconfirm wl-clipboard
-sudo pacman -S --noconfirm fwupd
-
-set +x
-echo "DONE"
 
