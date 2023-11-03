@@ -1,0 +1,2 @@
+info "Disable faillock\n"
+sudo sed -i 's/# deny = 3/deny = 0/' /etc/security/faillock.conf
