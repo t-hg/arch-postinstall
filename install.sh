@@ -34,11 +34,6 @@ done
 #export VISUAL=nvim
 #
 #EOF
-## password manager
-#sudo pacman -S --noconfirm bitwarden
-#sudo pacman -S --noconfirm bitwarden-cli
-#
-#
 #
 ## VPN
 #sudo pacman -S --noconfirm wireguard-tools
