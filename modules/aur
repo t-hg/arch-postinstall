@@ -1,6 +1,6 @@
-info "Install AUR helper\n"
+log "Install AUR helper\n"
 if is_installed yay; then 
-  info "Package 'yay' is already installed\n" 
+  log "Package 'yay' is already installed\n" 
 else
   install wget
   install go

@@ -8,13 +8,13 @@ touch "$HOME"/.ssh/id_rsa.pub
 
 . "./modules/bitwarden"
 
-info "Getting SSH private key...\n"
+log "Getting SSH private key...\n"
 bw get notes 'SSH Private Key' > "$HOME"/.ssh/id_rsa
 
-info "Getting SSH public key...\n"
+log "Getting SSH public key...\n"
 bw get notes 'SSH Public Key' > "$HOME"/.ssh/id_rsa.pub
 
-info "Writing SSH config...\n"
+log "Writing SSH config...\n"
 append "$HOME/.ssh/config" 'Host *
   AddKeysToAgent 1h
 '

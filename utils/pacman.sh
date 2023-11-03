@@ -10,9 +10,9 @@ function is_installed() {
 function install() {
   package="$1"
   if is_installed "$package"; then
-    info "Package '$package' is already installed\n"
+    log "Package '$package' is already installed\n"
   else
-    info "Installing package '$package'\n"
+    log "Installing package '$package'\n"
     sudo pacman -S --noconfirm "$package"
   fi
 }
@@ -21,9 +21,9 @@ function install() {
 function uninstall() {
   package="$1"
   if is_installed "$package"; then
-    info "Uninstalling package '$package'\n"
+    log "Uninstalling package '$package'\n"
     sudo pacman -Rcns "$package"
   else
-    info "Package '$package' is not installed\n"
+    log "Package '$package' is not installed\n"
   fi
 }

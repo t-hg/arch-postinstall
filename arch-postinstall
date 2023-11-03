@@ -9,11 +9,11 @@ set -e
 
 install fzf
 
-info "Select modules:\n"
+log "Select modules:\n"
 modules=$(find ./modules -type f | fzf --multi --height 20 --layout=reverse)
-info "Selected modules:\n"
+log "Selected modules:\n"
 for module in $modules; do
-  info "  $module\n"
+  log "  $module\n"
 done
 
 modules_done=()
@@ -23,7 +23,7 @@ for module in $modules; do
   modules_done+=("$module")
 done
 
-info "Executed modules:\n"
+log "Executed modules:\n"
 for module in "${modules_done[@]}"; do
-  info "  %s\n" "$module"
+  log "  %s\n" "$module"
 done

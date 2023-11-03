@@ -1,4 +1,4 @@
-info "Setup Go development\n"
+log "Setup Go development\n"
 install go
 install gopls
 install delve

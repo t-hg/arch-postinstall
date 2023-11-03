@@ -1,4 +1,4 @@
-info "Setup web development\n"
+log "Setup web development\n"
 install wget
 install curl
 install vscode-css-languageserver

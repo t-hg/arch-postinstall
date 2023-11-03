@@ -1,4 +1,4 @@
-info "Setup Neovim\n"
+log "Setup Neovim\n"
 
 uninstall vi
 uninstall vim

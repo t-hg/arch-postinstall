@@ -1,7 +1,7 @@
 install wireguard-tools
 
 if nmcli con show vpn-home > /dev/null; then
-  info "'vpn-home' already exists\n"
+  log "'vpn-home' already exists\n"
 else
   . "./modules/bitwarden"
   bw get attachment X13.conf --itemid="354a5107-10ae-430a-ac7e-b09b00f5f116" --raw | sudo tee /etc/wireguard/vpn-home.conf > /dev/null
