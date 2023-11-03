@@ -1,0 +1,11 @@
+install bc
+install fwupd
+install linux-headers
+install linux-lts-headers
+install man-db
+install man-pages
+install renameutils
+install ripgrep-all
+install rsync
+install tree
+install ttf-iosevka-nerd

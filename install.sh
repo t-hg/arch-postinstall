@@ -4,6 +4,8 @@ set -e
 
 . "./utils/log.sh"
 . "./utils/pacman.sh"
+. "./utils/append.sh"
+. "./utils/git.sh"
 
 install fzf
 
