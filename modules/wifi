@@ -1,4 +1,4 @@
-. "./modules/bitwarden.sh"
+. "./modules/bitwarden"
 info "Home WiFi\n"
 info "Getting WiFi SSID...\n"
 ssid="$(bw get username 'WLAN Home')"
