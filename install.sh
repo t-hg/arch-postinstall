@@ -45,20 +45,6 @@ done
 #sudo pacman -S --noconfirm clang
 #sudo pacman -S --noconfirm ccls
 #
-## Bash
-#sudo pacman -S --noconfirm bash-completion
-#sudo pacman -S --noconfirm bash-preexec
-#sudo pacman -S --noconfirm bash-language-server
-#sudo pacman -S --noconfirm shellcheck
-#git clone https://github.com/t-hg/bash-config $HOME/.config/bash
-#cat > $HOME/.bashrc <<'EOF'
-#. $HOME/.config/bash/bashrc
-#EOF
-#sudo git clone https://github.com/t-hg/bash-config /root/.config/bash
-#cat <<'EOF' | sudo tee /root/.bashrc
-#. /root/.config/bash/bashrc
-#EOF
-#
 ## Go development
 #sudo pacman -S --noconfirm go
 #sudo pacman -S --noconfirm gopls
@@ -67,13 +53,6 @@ done
 ## Go
 #export GOPATH=$HOME/.go
 #export PATH=$GOPATH/bin:$PATH
-#EOF
-#
-## Lazygit
-#sudo pacman -S --noconfirm lazygit
-#cat >> $HOME/.bashrc << 'EOF'
-## Lazygit
-#alias lg='lazygit'
 #EOF
 #
 ## Lua development
