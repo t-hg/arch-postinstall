@@ -13,6 +13,6 @@ function install() {
     info "Package '$package' is already installed\n"
   else
     info "Installing package '$package'\n"
-    run sudo pacman -S --noconfirm "$package"
+    sudo pacman -S --noconfirm "$package"
   fi
 }
