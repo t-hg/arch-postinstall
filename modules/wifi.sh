@@ -1,0 +1,7 @@
+. "./modules/bitwarden.sh"
+info "Home WiFi\n"
+info "Getting WiFi SSID...\n"
+ssid="$(bw get username 'WLAN Home')"
+info "Getting WiFi password...\n"
+pass="$(bw get password 'WLAN Home')"
+nmcli dev wifi connect "$ssid" password "$pass"

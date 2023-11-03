@@ -1,23 +1,22 @@
 #!/usr/bin/env bash
 
 set -e
-tput civis
 
 . "./utils/log.sh"
+. "./utils/pacman.sh"
 
-if ! [ -f "/usr/bin/fzf" ]; then 
-  info "Install fzf\n"
-  sudo pacman -S --noconfirm fzf
-fi
+install fzf
 
 info "Select modules:\n"
-modules=$(find ./modules -name "*.sh" | fzf --multi --height 20 --layout=reverse --prompt="" --bind="change:clear-query")
+modules=$(find ./modules -name "*.sh" | fzf --multi --height 20 --layout=reverse)
+info "Selected modules:\n"
+for module in $modules; do
+  info "  $module\n"
+done
 
 for module in $modules; do
   . "$module"
 done
-
-tput cnorm
 
 ## Editor
 #sudo pacman -Rcns --noconfirm vim
