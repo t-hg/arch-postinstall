@@ -1,0 +1,9 @@
+info "Setup Go development\n"
+install go
+install gopls
+install delve
+
+append "$HOME/.bashrc" '# Go
+export GOPATH=$HOME/.go
+export PATH=$GOPATH/bin:$PATH
+'
