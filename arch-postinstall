@@ -27,22 +27,3 @@ info "Executed modules:\n"
 for module in "${modules_done[@]}"; do
   info "  %s\n" "$module"
 done
-
-## Go development
-#sudo pacman -S --noconfirm go
-#sudo pacman -S --noconfirm gopls
-#sudo pacman -S --noconfirm delve
-#cat >> $HOME/.bashrc <<'EOF'
-## Go
-#export GOPATH=$HOME/.go
-#export PATH=$GOPATH/bin:$PATH
-#EOF
-#
-## Lua development
-#sudo pacman -S --noconfirm lua-language-server
-#
-## Web developement
-#sudo pacman -S --noconfirm wget
-#sudo pacman -S --noconfirm curl
-#sudo pacman -S --noconfirm vscode-css-languageserver
-#sudo pacman -S --noconfirm typescript-language-server
