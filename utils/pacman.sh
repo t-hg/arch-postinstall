@@ -16,3 +16,14 @@ function install() {
     sudo pacman -S --noconfirm "$package"
   fi
 }
+
+
+function uninstall() {
+  package="$1"
+  if is_installed "$package"; then
+    info "Uninstalling package '$package'\n"
+    sudo pacman -Rcns "$package"
+  else
+    info "Package '$package' is not installed\n"
+  fi
+}

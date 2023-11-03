@@ -1,0 +1,18 @@
+info "Setup Neovim\n"
+
+uninstall vi
+uninstall vim
+uninstall nano
+install neovim
+
+sudo ln -sf /usr/bin/nvim /usr/bin/vi
+sudo ln -sf /usr/bin/nvim /usr/bin/vim
+
+clone "https://github.com/t-hg/nvim-config" "$HOME/.config/nvim"
+
+sudo mkdir -p /root/.config/nvim
+sudo cp "$HOME/.config/nvim/lua/options.lua" /root/.config/nvim/init.lua
+
+sudo_append "/etc/profile" 'export EDITOR=nvim
+export VISUAL=nvim
+'
