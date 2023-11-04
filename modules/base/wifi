@@ -1,4 +1,4 @@
-. "./modules/bitwarden"
+. "./modules/base/bitwarden"
 log "Home WiFi\n"
 log "Getting WiFi SSID...\n"
 ssid="$(bw get username 'WLAN Home')"

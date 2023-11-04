@@ -6,7 +6,7 @@ touch "$HOME"/.ssh/id_rsa
 chmod 600 "$HOME"/.ssh/id_rsa
 touch "$HOME"/.ssh/id_rsa.pub
 
-. "./modules/bitwarden"
+. "./modules/base/bitwarden"
 
 log "Getting SSH private key...\n"
 bw get notes 'SSH Private Key' > "$HOME"/.ssh/id_rsa

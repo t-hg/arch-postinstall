@@ -1,0 +1,4 @@
+install plasma
+install kde-applications
+install sddm
+sudo systemctl enable sddm
