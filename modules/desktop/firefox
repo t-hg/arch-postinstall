@@ -1,0 +1,71 @@
+install firefox
+
+log "Killing all Firefox instances...\n"
+killall firefox || true
+
+log "Remove all Firefox configurations...\n"
+rm -rf "$HOME/.mozilla"
+
+prefs="$HOME/.mozilla/firefox/**/prefs.js"
+
+log "Starting Firefox...\n"
+firefox > /dev/null 2>&1 & disown
+
+while ! ls $prefs; do
+  log "Waiting for file '$prefs'...\n"
+  sleep 1
+done
+
+log "Killing all Firefox instances...\n"
+killall firefox || true
+
+prefs="$(ls $prefs)"
+prefs="$(dirname $prefs)/user.js"
+log "Using '$prefs'...\n"
+
+log "Appening Firefox configurations...\n"
+append "$prefs" 'user_pref("app.shield.optoutstudies.enabled", false);'
+append "$prefs" 'user_pref("browser.discovery.enabled", false);'
+append "$prefs" 'user_pref("browser.formfill.enable", false);'
+append "$prefs" 'user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);'
+append "$prefs" 'user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);'
+append "$prefs" 'user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);'
+append "$prefs" 'user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);'
+append "$prefs" 'user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);'
+append "$prefs" 'user_pref("browser.newtabpage.activity-stream.showSearch", true);'
+append "$prefs" 'user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);'
+append "$prefs" 'user_pref("browser.search.suggest.enabled", false);'
+append "$prefs" 'user_pref("browser.urlbar.placeholderName", "DuckDuckGo");'
+append "$prefs" 'user_pref("browser.urlbar.placeholderName.private", "DuckDuckGo");'
+append "$prefs" 'user_pref("browser.urlbar.showSearchSuggestionsFirst", false);'
+append "$prefs" 'user_pref("browser.urlbar.suggest.bookmark", false);'
+append "$prefs" 'user_pref("browser.urlbar.suggest.engines", false);'
+append "$prefs" 'user_pref("browser.urlbar.suggest.openpage", false);'
+append "$prefs" 'user_pref("browser.urlbar.suggest.searches", false);'
+append "$prefs" 'user_pref("browser.urlbar.suggest.topsites", false);'
+append "$prefs" 'user_pref("datareporting.healthreport.uploadEnabled", false);'
+append "$prefs" 'user_pref("privacy.history.custom", true);'
+append "$prefs" 'user_pref("signon.autofillForms", false);'
+append "$prefs" 'user_pref("signon.firefoxRelay.feature", "disabled");'
+append "$prefs" 'user_pref("signon.generation.enabled", false);'
+append "$prefs" 'user_pref("signon.rememberSignons", false);'
+append "$prefs" 'user_pref("toolkit.telemetry.pioneer-new-studies-available", false);'
+
+install htmlq
+extensions="$(dirname $prefs)/extensions"
+mkdir -p "$extensions"
+
+function install_extension() {
+  name="$1"
+  id="$2"
+  log "Installing '$name' for Firefox...\n"
+  link="$(curl -s https://addons.mozilla.org/de/firefox/addon/$name/ | htmlq --pretty '[href$=".xpi"]' --attribute href)"
+  curl -s "$link" -o "$extensions/$id.xpi" 
+}
+
+install_extension "dictionary-german-swiss" "de-CH@dictionaries.addons.mozilla.org"
+install_extension "ublock-origin" "uBlock0@raymondhill.net"
+install_extension "clear-browsing-data" "{ce9f4b1f-24b8-4e9a-9051-b9e472b1b2f2}"
+
+# vim:filetype=bash
+

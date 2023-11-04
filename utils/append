@@ -11,7 +11,8 @@ function append() {
       log "Adding newline to '$file'\n"
       echo >> "$file"
     fi
-    echo -n "$content" | tee -a "$file" 
+    echo -n "$content" | tee -a "$file" > /dev/null
+    log "Written to '$file': '$content'\n"
   fi
 }
 
@@ -28,6 +29,9 @@ function sudo_append() {
       log "Adding newline to '$file'\n"
       echo | sudo tee -a "$file"
     fi
-    echo -n "$content" | sudo tee -a "$file" 
+    echo -n "$content" | sudo tee -a "$file" > /dev/null
+    log "Written to '$file': '$content'\n"
   fi
 }
+
+# vim:filetype=bash

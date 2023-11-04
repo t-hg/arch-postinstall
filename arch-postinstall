@@ -2,10 +2,10 @@
 
 set -e
 
-. "./utils/log.sh"
-. "./utils/pacman.sh"
-. "./utils/append.sh"
-. "./utils/git.sh"
+. "./utils/log"
+. "./utils/pacman"
+. "./utils/append"
+. "./utils/git"
 
 install fzf
 
