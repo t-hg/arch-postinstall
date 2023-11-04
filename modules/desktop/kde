@@ -1,0 +1,13 @@
+log "Setting KDE look and feel...\n"
+plasma-apply-lookandfeel -a org.kde.breezedark.desktop
+
+log "Setting KDE fixed font...\n"
+kwriteconfig5 --group General --key fixed "Iosevka Nerd Font,12,-1,5,50,0,0,0,0,0"
+
+sudo_append "/etc/sddm.conf.d/kde_settingsconf" '[Theme]
+Current=breeze
+CursorTheme=breeze_cursors
+Font=Noto Sans,10,-1,0,50,0,0,0,0,0'
+
+# vim:filetype=bash
+
