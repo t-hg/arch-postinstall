@@ -3,3 +3,7 @@
 user="$(whoami)"
 log "Editing user information for user '$user'...\n"
 sudo chfn "$user"
+
+log "Storing picture for user '$user'...\n"
+bw get attachment avatar.png --itemid="e32294d3-e64f-48b1-9e0a-b0b10102044a" --output "$HOME/.face"
+
