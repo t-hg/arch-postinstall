@@ -37,6 +37,8 @@ append "$prefs" 'user_pref("browser.newtabpage.activity-stream.section.highlight
 append "$prefs" 'user_pref("browser.newtabpage.activity-stream.showSearch", true);'
 append "$prefs" 'user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);'
 append "$prefs" 'user_pref("browser.search.suggest.enabled", false);'
+append "$prefs" 'user_pref("browser.toolbars.bookmarks.visibility", "never");'
+append "$prefs" 'user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"firefox-view-button\",\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"toolbar-menubar\",\"TabsToolbar\",\"PersonalToolbar\"],\"currentVersion\":19,\"newElementCount\":3}");'
 append "$prefs" 'user_pref("browser.urlbar.placeholderName", "DuckDuckGo");'
 append "$prefs" 'user_pref("browser.urlbar.placeholderName.private", "DuckDuckGo");'
 append "$prefs" 'user_pref("browser.urlbar.showSearchSuggestionsFirst", false);'
@@ -52,6 +54,7 @@ append "$prefs" 'user_pref("signon.firefoxRelay.feature", "disabled");'
 append "$prefs" 'user_pref("signon.generation.enabled", false);'
 append "$prefs" 'user_pref("signon.rememberSignons", false);'
 append "$prefs" 'user_pref("toolkit.telemetry.pioneer-new-studies-available", false);'
+
 
 install htmlq
 extensions="$(dirname "$prefs")/extensions"
