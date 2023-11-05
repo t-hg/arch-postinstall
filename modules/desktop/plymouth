@@ -22,3 +22,20 @@ log "Writing '$options' to '$loader_entry'...\n"
 options_escaped="$(echo -n "$options" | sed -e 's/[]\/$*.^[]/\\&/g')"
 log "Escaped string: '$options_escaped'\n"
 sudo sed "s/^options.*$/$options_escaped/" -i "$loader_entry" 
+
+
+mkinitcpio_conf="/etc/mkinitcpio.conf"
+log "Reading '$mkinitcpio_conf'...\n"
+hooks="$(grep -F "HOOKS=(" $mkinitcpio_conf)"
+log "$hooks\n"
+if echo -n "$hooks" | grep -q "plymouth"; then
+  log "'plymouth' hook does already exist\n"
+else
+  log "Adding 'plymouth' hook...\n"
+  hooks="$(echo -n "$hooks" | sed 's/)/ plymouth)/')"
+  log "Writing '$hooks' to '$mkinitcpio_conf'...\n"
+  hooks_escaped="$(echo -n "$hooks" | sed -e 's/[]\/$*.^[]/\\&/g')"
+  log "Escaped string: '$hooks_escaped'\n"
+  sudo sed "s/^HOOKS=(.*$/$hooks_escaped/" -i "$mkinitcpio_conf" 
+  sudo mkinitcpio -p linux
+fi
