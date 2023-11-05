@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 install bash-completion
 install bash-preexec
 install bash-language-server

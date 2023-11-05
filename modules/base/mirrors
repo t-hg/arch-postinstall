@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 log "Gimme fast mirrors...\n"
 install rsync
 install reflector

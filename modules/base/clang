@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 log "C Programming...\n"
 install base-devel
 install clang

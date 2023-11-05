@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 function append() {
   file="$1"
   content="$2"
@@ -33,5 +35,3 @@ function sudo_append() {
     log "Written to '$file': '$content'\n"
   fi
 }
-
-# vim:filetype=bash

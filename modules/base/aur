@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 log "Install AUR helper\n"
 if is_installed yay; then 
   log "Package 'yay' is already installed\n" 

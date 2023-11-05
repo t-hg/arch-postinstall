@@ -1,2 +1,4 @@
+#!/usr/bin/env bash
+
 log "Speed up Pacman\n"
 sudo sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf

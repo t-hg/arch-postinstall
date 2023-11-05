@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 install firefox
 
 log "Killing all Firefox instances...\n"
@@ -20,7 +22,7 @@ log "Killing all Firefox instances...\n"
 killall firefox || true
 
 prefs="$(ls $prefs)"
-prefs="$(dirname $prefs)/user.js"
+prefs="$(dirname "$prefs")/user.js"
 log "Using '$prefs'...\n"
 
 log "Appening Firefox configurations...\n"
@@ -52,20 +54,18 @@ append "$prefs" 'user_pref("signon.rememberSignons", false);'
 append "$prefs" 'user_pref("toolkit.telemetry.pioneer-new-studies-available", false);'
 
 install htmlq
-extensions="$(dirname $prefs)/extensions"
+extensions="$(dirname "$prefs")/extensions"
 mkdir -p "$extensions"
 
 function install_extension() {
   name="$1"
   id="$2"
   log "Installing '$name' for Firefox...\n"
-  link="$(curl -s https://addons.mozilla.org/de/firefox/addon/$name/ | htmlq --pretty '[href$=".xpi"]' --attribute href)"
+  link="$(curl -s https://addons.mozilla.org/de/firefox/addon/"$name"/ | htmlq --pretty '[href$=".xpi"]' --attribute href)"
   curl -s "$link" -o "$extensions/$id.xpi" 
 }
 
 install_extension "dictionary-german-swiss" "de-CH@dictionaries.addons.mozilla.org"
 install_extension "ublock-origin" "uBlock0@raymondhill.net"
 install_extension "clear-browsing-data" "{ce9f4b1f-24b8-4e9a-9051-b9e472b1b2f2}"
-
-# vim:filetype=bash
 

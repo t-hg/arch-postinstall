@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 function is_installed() {
   package="$1"
   if pacman -Qi "$package" > /dev/null 2>&1; then

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 install bc
 install fwupd
 install linux-headers

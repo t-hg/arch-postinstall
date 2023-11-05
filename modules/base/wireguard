@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 install wireguard-tools
 
 if nmcli con show vpn-home > /dev/null; then

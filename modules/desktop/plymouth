@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+install plymouth
+
+log "Setting up silent boot...\n"
+loader_entry="$(ls /boot/loader/entries/*_linux.conf)"
+log "Found loader entry '$loader_entry'\n"
+options="$(grep -P "^options\s+.*$" "$loader_entry")"
+log "Found '$options'\n"
+options_to_add="splash quiet loglevel=3 systemd.show_status=auto rd.udev.log_level=3"
+
+for option in $options_to_add; do
+  if echo -n "$options" | grep -F -q "$option"; then
+    log "'$option' does already exist\n"
+  else
+    log "Adding option '$option'...\n"
+    options="$options $option"
+  fi
+done
+
+log "Writing '$options' to '$loader_entry'...\n"
+options_escaped="$(echo -n "$options" | sed -e 's/[]\/$*.^[]/\\&/g')"
+log "Escaped string: '$options_escaped'\n"
+sudo sed "s/^options.*$/$options_escaped/" -i "$loader_entry" 

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 log "Install and setup Git\n"
 
 install git

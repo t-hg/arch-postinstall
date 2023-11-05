@@ -1,2 +1,4 @@
+#!/usr/bin/env bash
+
 log "Setup Lua development\n"
 install lua-language-server

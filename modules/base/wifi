@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 . "./modules/base/bitwarden"
 log "Home WiFi\n"
 log "Getting WiFi SSID...\n"
