@@ -11,6 +11,9 @@ log "Disable cursor launch feedback...\n"
 kwriteconfig5 --file klaunchrc --group BusyCursorSettings --key Bouncing --type bool "false"
 kwriteconfig5 --file klaunchrc --group FeedbackStyle --key BusyCursor --type bool "false"
 
+log "Disable keep clipboard across desktop sessions...\n"
+kwriteconfig5 --file klipperrc --group General --key KeepClipboardContents --type bool "false"
+
 log "Setting SDDM theme...\n"
 sudo_append "/etc/sddm.conf.d/kde_settingsconf" '[Theme]
 Current=breeze
