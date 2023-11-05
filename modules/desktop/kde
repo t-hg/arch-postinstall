@@ -3,6 +3,9 @@
 log "Setting KDE look and feel...\n"
 plasma-apply-lookandfeel -a org.kde.breezedark.desktop
 
+log "Setting double click behaviour...\n"
+kwriteconfig5 --group KDE --key SingleClick --type bool "false"
+
 log "Setting KDE fixed font...\n"
 install ttf-iosevka-nerd
 kwriteconfig5 --group General --key fixed "Iosevka Nerd Font,12,-1,5,50,0,0,0,0,0"
