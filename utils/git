@@ -26,10 +26,12 @@ function sudo_clone() {
 
 function git_config() {
   key="$1"
+  set +e
   cur="$(git config --global --get "$key")"
+  set -e
   if [ -z "$cur" ]; then
     log "Setting '$key'...\n"
-    read -r -p "$key" val && git config --global "$key" "$val"
+    read -r -p "$key: " val && git config --global "$key" "$val"
   else
     log "'$key' already set to '$cur'\n"
   fi

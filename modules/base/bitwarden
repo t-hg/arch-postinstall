@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+install jq
 install bitwarden-cli
 
 function lock() {
@@ -8,12 +9,14 @@ function lock() {
 
 trap lock EXIT
 
-if [ "$(bw status | jq -r .status)" == "unauthenticated" ]; then
+set +e
+while [ "$(bw status | jq -r .status)" == "unauthenticated" ]; do
   log "Bitwarden login\n"
   bw login
-else
-  log "Already logged into Bitwarden\n"
-fi
+done
+set -e
+
+log "Bitwarden login successful\n"
 
 set +e
 while [ -z "$BW_SESSION" ]; do
