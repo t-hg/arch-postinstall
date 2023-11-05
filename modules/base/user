@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+user="$(whoami)"
+log "Editing user information for user '$user'...\n"
+sudo chfn "$user"
