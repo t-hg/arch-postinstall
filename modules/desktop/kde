@@ -17,6 +17,9 @@ kwriteconfig5 --file klipperrc --group General --key KeepClipboardContents --typ
 log "Always start with empty session...\n"
 kwriteconfig5 --file ksmserverrc --group General --key loginMode "emptySession"
 
+log "Configuring alt-tab behaviour...\n"
+kwriteconfig5 --file kwinrc --group TabBox --key LayoutName "thumbnail_grid"
+
 log "Setting SDDM theme...\n"
 sudo_append "/etc/sddm.conf.d/kde_settingsconf" '[Theme]
 Current=breeze
