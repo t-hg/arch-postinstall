@@ -31,8 +31,14 @@ log "$hooks\n"
 if echo -n "$hooks" | grep -q "plymouth"; then
   log "'plymouth' hook does already exist\n"
 else
-  log "Adding 'plymouth' hook...\n"
-  hooks="$(echo -n "$hooks" | sed 's/)/ plymouth)/')"
+  if echo -n "$hooks" | grep -q "encrypt"; then
+    log "'encrypt' hook exists\n"
+    log "Adding 'plymouth' hook before 'encrypt'...\n"
+    hooks="$(echo -n "$hooks" | sed 's/encrypt/plymouth encrypt/')"
+  else
+    log "Appending 'plymouth' hook...\n"
+    hooks="$(echo -n "$hooks" | sed 's/)/ plymouth)/')"
+  fi
   log "Writing '$hooks' to '$mkinitcpio_conf'...\n"
   hooks_escaped="$(echo -n "$hooks" | sed -e 's/[]\/$*.^[]/\\&/g')"
   log "Escaped string: '$hooks_escaped'\n"
