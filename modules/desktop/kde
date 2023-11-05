@@ -21,7 +21,7 @@ log "Configuring alt-tab behaviour...\n"
 kwriteconfig5 --file kwinrc --group TabBox --key LayoutName "thumbnail_grid"
 
 log "Setting SDDM theme...\n"
-sudo_append "/etc/sddm.conf.d/kde_settingsconf" '[Theme]
+sudo_append "/etc/sddm.conf.d/kde_settings.conf" '[Theme]
 Current=breeze
 CursorTheme=breeze_cursors
 Font=Noto Sans,10,-1,0,50,0,0,0,0,0'
