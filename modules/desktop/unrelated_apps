@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+log "Installing unrelated apps...\n"
+install bitwarden
