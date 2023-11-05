@@ -1,9 +1,32 @@
 #!/usr/bin/env bash
 
 . "./modules/base/bitwarden"
+
+ifname="$(ls /sys/class/ieee80211/*/device/net/)"
+
+function add_connection() {
+  ssid="$1"
+  pass="$2"
+  log "Removing connection '$ssid'...\n"
+  set +e
+  nmcli con delete "$ssid"
+  set -e
+  log "Adding connection '$ssid'...\n"
+  nmcli con add type wifi con-name "$ssid" ifname "$ifname" ssid "$ssid"
+  log "Setting password for connection '$ssid'...\n"
+  nmcli con modify "$ssid" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "$pass"
+}
+
 log "Home WiFi\n"
 log "Getting WiFi SSID...\n"
 ssid="$(bw get username 'WLAN Home')"
 log "Getting WiFi password...\n"
 pass="$(bw get password 'WLAN Home')"
-nmcli dev wifi connect "$ssid" password "$pass"
+add_connection "$ssid" "$pass"
+
+log "Mobile WiFi\n"
+log "Getting WiFi SSID...\n"
+ssid="$(bw get username 'WLAN Mobile')"
+log "Getting WiFi password...\n"
+pass="$(bw get password 'WLAN Mobile')"
+add_connection "$ssid" "$pass"
