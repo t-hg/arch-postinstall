@@ -37,3 +37,6 @@ sudo plymouth-set-default-theme -R breeze
 log "Disable KDE splash screen...\n"
 kwriteconfig5 --file ksplashrc --group KSplash --key Engine "none"
 kwriteconfig5 --file ksplashrc --group KSplash --key Theme "None"
+
+log "Installing additional KDE apps...\n"
+install gwenview
