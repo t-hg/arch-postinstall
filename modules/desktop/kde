@@ -26,3 +26,7 @@ Current=breeze
 CursorTheme=breeze_cursors
 Font=Noto Sans,10,-1,0,50,0,0,0,0,0'
 
+log "Configuring plymouth for KDE...\n"
+install plymouth-kcm
+install breeze-plymouth
+sudo plymouth-set-default-theme -R breeze
