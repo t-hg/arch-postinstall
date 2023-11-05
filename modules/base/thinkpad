@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+log "Improve battery for ThinkPads...\n"
 install tlp
 sudo systemctl enable tlp
 sudo systemctl start tlp
