@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+install dconf
+
+log "Setup mouse pointer theme...\n"
+aur_install bibata-cursor-theme-bin
+dconf write "/org/cinnamon/desktop/interface/cursor-theme" "'Bibata-Modern-Classic'"
+
+log "Setup icons theme...\n"
+aur_install mint-y-icons
+dconf write "/org/cinnamon/desktop/interface/icon-theme" "'Mint-Y'"
+
+log "Buidling Mint-Y theme...\n"
+install sassc
+clone "https://github.com/linuxmint/mint-themes.git" "/tmp/mint-themes"
+pushd "/tmp/mint-themes"
+./generate-themes.py
+for theme in usr/share/themes/*; do
+  log "Installing theme '$theme'\n"
+  rm -rf "/usr/share/themes/$theme"
+  sudo cp -r "$theme" /usr/share/themes/
+done
+popd
+
+log "Setting GTK theme...\n"
+dconf write "/org/cinnamon/desktop/interface/gtk-theme" "'Mint-Y-Dark'"
+
+log "Setting Cinnamon theme...\n"
+dconf write "/org/cinnamon/theme/name" "'Mint-Y-Dark'"
+

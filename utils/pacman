@@ -19,6 +19,16 @@ function install() {
   fi
 }
 
+function aur_install() {
+  package="$1"
+  if is_installed "$package"; then
+    log "Package '$package' is already installed\n"
+  else
+    log "Installing package '$package'\n"
+    yay -S --noconfirm "$package"
+  fi
+}
+
 
 function uninstall() {
   package="$1"
